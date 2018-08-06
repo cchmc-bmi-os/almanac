@@ -1,0 +1,9 @@
+{{#if diff}}
+  <span class="pr-3">Current:</span><span class="text-danger">{{diff.current}}</span><br/>
+  <span class="pr-3">CDE:</span> <span class="text-success">
+    {{{if (and diff.original (not-eq diff.original 'NULL')) diff.original '<span class="text-muted">&lt;Empty&gt;</span>'}}}
+  </span>
+  <br/>
+{{else}}
+  {{{cdeValue}}}
+{{/if}}

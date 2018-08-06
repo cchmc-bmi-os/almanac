@@ -1,0 +1,25 @@
+<div class="header">
+  <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
+    {{#link-to 'index' class="navbar-brand"}}Data Almanac{{/link-to}}
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="main-menu">
+      <ul class="navbar-nav mr-auto">
+        {{#link-to 'search' tagName="li" class="nav-item"}}<a class="nav-link">Search</a>{{/link-to}}
+        {{#if showReview}}
+          {{#link-to 'review' tagName="li" class="nav-item"}}<a class="nav-link">Review</a>{{/link-to}}
+        {{/if}}
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        {{#link-to 'help' tagName="li" class="nav-item"}}<a class="nav-link">Help</a>{{/link-to}}
+        {{#if session.isAuthenticated}}
+          <li class="nav-item"><a class="nav-link" {{action 'invalidateSession'}}>Logout</a></li>
+        {{/if}}
+        <li class="nav-item"><img class="logo" src="{{rootURL}}img/nbstrn.png" alt="NBSTRN Logo"></li>
+      </ul>
+    </div>
+  </nav>
+</div>

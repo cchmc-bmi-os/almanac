@@ -1,0 +1,33 @@
+.review {
+  .data-element {
+    margin: 15px 0;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
+
+    .header {
+      padding-bottom: 15px;
+    }
+
+    .body {
+      margin-top: 15px;
+      border-top: 1px solid darken($white, 25%);
+      padding-top: 15px;
+      padding-bottom: 15px;
+
+      .list-group {
+        .list-group-item {
+          .label {
+            cursor: pointer;
+            margin-top: 4px;
+          }
+        }
+      }
+    }
+  }
+}

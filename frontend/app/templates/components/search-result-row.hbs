@@ -1,0 +1,43 @@
+<div class="row result">
+  <div class="col-12">
+    {{#if siteQuestion.classification}}
+      <div class="float-right badge badge-warning text-light">{{siteQuestion.classification}}</div>
+    {{/if}}
+    <div class="action">
+      {{#if existsInSavedCdes}}
+        <button class="add-btn btn btn-disabled" title="Already added to the saved CDEs" >
+          <i class="fa fa-fw fa-plus text-muted"></i>
+        </button>
+        <div class="note">Add CDE</div>
+      {{else}}
+        <button class="add-btn btn btn-success" {{action 'addSavedCde'}} title="Add to Saved CDE's">
+          <i class="fa fa-fw fa-plus"></i>
+        </button>
+        <div class="note">Add CDE</div>
+      {{/if}}
+    </div>
+    <h5 class="title">
+      <i class="fa fa-{{toggleIcon}} toggle-detail" {{action (toggle 'showDetail' this)}} title="More information"></i>
+      {{#link-to 'cde-view' siteQuestion.question.name target="_blank"}}
+        <span class="text-primary">
+            {{siteQuestion.text}}
+        </span> - <span class="text-muted">{{siteQuestion.name}}</span>
+      {{/link-to}}
+    </h5>
+    <h6 class="sub-title text-muted">{{siteQuestion.form.fullForm}}</h6>
+    {{#liquid-if showDetail class="cde-detail"}}
+      <div class="detail">
+        <hr/>
+        <label>Definition:</label>
+        <p>
+          {{if siteQuestion.question.definitions.firstObject.definition siteQuestion.question.definitions.firstObject.definition 'None'}}
+        </p>
+        <label>Definition Note:</label>
+        <p>
+          {{if siteQuestion.question.definitions.firstObject.definition_note siteQuestion.question.definitions.firstObject.definition_note 'None'}}
+        </p>
+      </div>
+    {{/liquid-if}}
+  </div>
+</div>
+<hr/>

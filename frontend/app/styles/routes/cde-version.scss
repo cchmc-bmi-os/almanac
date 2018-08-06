@@ -1,0 +1,39 @@
+.cde-version {
+  font-size: 0.85rem !important;
+
+  .nav-tabs {
+    .nav-link {
+      border-radius: 0;
+
+      &.active {
+        color: $brand-success;
+      }
+    }
+  }
+
+  .tab-content {
+    .tab-pane {
+      padding: 1rem;
+
+      .changed {
+        background-color: $brand-danger;
+        color: white;
+        padding: 5px 10px;
+      }
+    }
+  }
+
+  .title {
+    color: $brand-primary;
+  }
+
+  .table {
+    &.no-bottom-header {
+      thead {
+        th {
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

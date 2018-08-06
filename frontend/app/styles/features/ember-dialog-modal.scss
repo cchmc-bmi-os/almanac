@@ -1,0 +1,36 @@
+.ember-modal-overlay {
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 50;
+  background-color: rgba(0, 0, 0, .5);
+  z-index: 6000;
+}
+
+.ember-modal-dialog {
+  z-index: 6050;
+  max-width: 100%;
+  min-width: 40%;
+  margin: 10% auto;
+
+
+  &.ember-modal-dialog-in-place {
+    position: static;
+  }
+
+  .modal-header {
+    background-color: $brand-primary;
+    color: white;
+
+    .close {
+      color: white;
+    }
+  }
+
+  .modal-footer {
+    border-top: 1px solid transparentize($brand-primary, .8);
+    background-color: transparentize(desaturate($brand-primary, 75%), .9);
+  }
+}

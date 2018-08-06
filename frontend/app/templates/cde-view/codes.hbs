@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        Associated Codes
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body codes">
+        {{#if model.question_codes}}
+        <p class="text-right text-muted">Place mouse over code to see the note if available</p>
+        <div class="row cell double">
+          <div class="col-9">&nbsp;</div>
+          <div class="col-3">
+            <h5>{{model.code_type}}</h5>
+          </div>
+        </div>
+
+        <div class="row cell double">
+          <div class="col-9"><strong>{{model.text}}</strong></div>
+          <div class="col-3{{if model.question_codes ' cell-left'}}">
+            {{#each model.question_codes as |code|}} {{code.value}} {{/each}}
+          </div>
+        </div>
+        {{#each model.choices as |choice|}}
+        <div class="row cell">
+          <div class="col-9">
+            {{choice.text}} (<span class="text-muted">{{choice.value}}</span>)
+          </div>
+          <div class="col-3 cell-left">
+            {{#each choice.codes as |code|}}
+            <span title="{{code.note}}" data-toggle={{if code.note 'tooltip'}}>{{code.value}}</span><br/> {{else}} No codes
+            {{/each}}
+          </div>
+        </div>
+        {{/each}} {{else}}
+        <h4>No codes associated with this CDE</h4>
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.footer {
+  box-shadow: 0 0 3px darken($white, 15%);
+  background-color: darken($white, 5%);
+  border-top: 1px solid darken($white, 15%);
+  bottom: 0;
+  font-size: 8pt;
+  padding: 5px;
+  position: fixed;
+  text-align: center;
+  width: 100%;
+  z-index: 2500;
+}

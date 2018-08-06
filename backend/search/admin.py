@@ -1,0 +1,20 @@
+from django.contrib import admin
+from . import models
+
+admin.site.register(models.Source)
+admin.site.register(models.Definition)
+admin.site.register(models.Choice)
+admin.site.register(models.ConditionCategory)
+admin.site.register(models.Condition)
+admin.site.register(models.CodeType)
+admin.site.register(models.Code)
+admin.site.register(models.Question)
+admin.site.register(models.Site)
+admin.site.register(models.Form)
+admin.site.register(models.SiteQuestion)
+admin.site.register(models.SiteQuestionChoice)
+admin.site.register(models.QuestionDefinition)
+admin.site.register(models.ChoiceDefinition)
+admin.site.register(models.SavedCde)
+admin.site.register(models.Tag)
+admin.site.register(models.TagLabel)

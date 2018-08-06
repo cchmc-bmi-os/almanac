@@ -1,0 +1,7 @@
+{{review-list data=model.currentReviews label='Current Reviews' refresh=(route-action 'checkStatus') remove=(route-action 'removeReview')
+requestRemoval=(route-action 'requestRemoval')}}
+
+<div class="my-3"></div>
+
+{{review-list data=model.completedReviews label='Completed Reviews' refresh=(route-action 'checkStatus') remove=(route-action 'removeReview')
+requestRemoval=(route-action 'requestRemoval')}}

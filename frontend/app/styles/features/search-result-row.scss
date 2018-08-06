@@ -1,0 +1,45 @@
+.result {
+  .action {
+    float: left;
+    margin-top: 0.65rem;
+    margin-right: 0.75rem;
+
+    .add-btn {
+      font-size: 1.5rem;
+      padding: 0 0.5rem;
+      clear: both;
+    }
+
+    .note {
+      font-size: 0.75rem;
+    }
+  }
+
+  .title {
+    text-decoration: underline;
+    color: desaturate(lighten($brand-primary, 20%), 70%);
+
+    .fa {
+      cursor: pointer;
+
+      &.toggle-detail {
+        position: relative;
+        top: 0.40rem;
+        font-size: 2.25rem;
+        width: 0.75em
+      }
+    }
+  }
+
+  .sub-title {
+    margin-left: 5.5rem;
+  }
+
+  .detail {
+    margin-left: 5.25rem;
+
+    label {
+      font-weight: bold;
+    }
+  }
+}

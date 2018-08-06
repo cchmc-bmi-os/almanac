@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          Question Visibility
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center branching-blurb">
+      {{#if model.branching_logic}}
+      <strong class="text-info">This question is nested under other questions and will only be displayed on the forms if the previous questions are answered as indicated below.</strong>
+      <hr/> {{else}}
+      <strong class="text-info">The question is always visible on the forms. It is not nested under any other questions.</strong>      {{/if}}
+    </div>
+  </div>
+
+  {{#if model.branching_logic}}
+  <br/><br/>
+  <h5 class="text-muted">*Note that the questions below can also be nested under other questions.</h5>
+  <br/> {{#each model.branching_questions as |question|}}
+  <div class="row branching-choice">
+    <div class="col-12">
+      <h4 class="text-primary">{{question.text}}</h4>
+      <ul>
+        {{#each question.choices as |choice|}} {{log choice}}
+        <li class={{if choice.highlight 'highlight'}}>{{choice.text}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  {{/each}} {{/if}}
+</div>

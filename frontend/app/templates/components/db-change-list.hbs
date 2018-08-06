@@ -1,0 +1,27 @@
+<div class='db-adds'>
+  <h5>Add these in the DA</h5>
+  <ul>
+    {{#each changes.adds as |change|}}
+      <li class="text-muted">
+        {{change.name}}: {{change.text}}
+      </li>
+    {{else}}
+      <li class="text-muted">There are no addition for this DD</li>
+    {{/each}}
+  </ul>
+</div>
+
+<hr/>
+
+<div class='db-updates'>
+  <h5>Update these in the DA</h5>
+  <ul>
+    {{#each changes.updates as |change|}}
+      <li class="text-muted">
+          {{change.name}}: {{change.text}}
+      </li>
+    {{else}}
+      <li class="text-muted">There are no updates for this DD</li>
+    {{/each}}
+  </ul>
+</div>

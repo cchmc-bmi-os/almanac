@@ -1,0 +1,14 @@
+.header {
+  .navbar {
+    z-index: 2000;
+
+    a {
+      cursor: pointer;
+    }
+
+    .logo {
+      height: 40px;
+      width: auto;
+    }
+  }
+}

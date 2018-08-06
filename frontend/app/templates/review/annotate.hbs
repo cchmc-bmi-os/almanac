@@ -1,0 +1,157 @@
+{{#if showDefaultConditions}}
+  {{#modal-dialog targetAttachment="center" onClose=(toggle 'showDefaultConditions' this)}}
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Setup default conditions for this project</h5>
+          <button type="button" class="close ml-auto" aria-label="Close" {{action (toggle 'showDefaultConditions' this)}}>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          {{#power-select-multiple
+                allowClear=true
+                options=model.conditions
+                selected=defaultConditions
+                searchField='name'
+                placeholder='Select a Annotation'
+                searchPlaceholder='Type to filter Conditions...'
+                renderInPlace=true
+                onchange=(action "updateDefaultConditions") as |item|
+              }}
+                {{item.name}}
+              {{/power-select-multiple}}
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" {{action (toggle 'showDefaultConditions' this)}}>Done</button>
+        </div>
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
+
+{{#if showDoneConfirmation}}
+  {{#modal-dialog targetAttachment="center" onClose=(toggle "showDoneConfirmation" this)}}
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are you sure you are done?</h5>
+          <button type="button" class="close ml-auto" aria-label="Close" {{action (toggle "showDoneConfirmation" this)}}>
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">
+            {{#if (eq "Grantee" reviewType)}}
+              <p class="mx-3">
+                This will mark this review as ready to be reviewed. Once it is marked as done the reviewers will be notified that a review
+                is ready and they will have the chance to look at the review and suggest some Annotations.
+              </p>
+            {{else}}
+              <p class="mx-3">
+                This will mark the review as complete and you are able to send it on for further review. You must select what you want to
+                do with the review next. If you pass it on the receiver will act upon it. If you mark it as complete it will be
+                finished an no more actions can be done to it.
+              </p>
+            {{/if}}
+          </p>
+        </div>
+        <div class="modal-footer">
+          <div class="col-12">
+            {{#if (eq "Grantee" reviewType)}}
+              <div class="mb-1">
+                <button type="button" class="btn btn-block btn-primary" {{action "markDone" "CCHMC"}}>Yes, send it for review</button>
+              </div>
+            {{else}}
+              {{#each reviewRoles as |reviewRole|}}
+                {{#unless (eq reviewRole reviewType)}}
+                  <div class="mb-1">
+                    <button class="btn btn-block btn-light" {{action "markDone" reviewRole}}>I"m done, send to {{reviewRole}}</button>
+                  </div>
+                {{/unless}}
+              {{/each}}
+
+              <div class="mb-1">
+                <button class="btn btn-block btn-light" {{action "markDone" "Grantee"}}>I"m done, send to Grantee</button>
+              </div>
+
+              {{#if reviewCanBeFinished}}
+                <div class="mb-1">
+                  <button type="button" class="btn btn-block btn-success" {{action "markDone" "finish"}}>Mark Review Complete</button>
+                </div>
+              {{/if}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}
+<div class="review container-fluid">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <h2 class="text-primary">{{review.status}}</h2>
+    </div>
+    <div class="col-12 col-md-4 text-md-right">
+      <button class="btn btn-light" {{action (toggle "showDefaultConditions" this)}}>Set Default Conditions</button>
+      <button class="btn btn-success" {{action 'showMarkDone'}}>
+        <i class="fa fa-check"></i>
+        {{#if (eq "Grantee" reviewType)}}
+          Finished reviewing
+        {{else}}
+          Done with annotating
+        {{/if}}
+      </button>
+      <br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="First group">
+          {{#link-to "review.annotate" review.id "different" class="btn btn-light"}}Different ({{counts.different}}){{/link-to}}
+          {{#link-to "review.annotate" review.id "not_found" class="btn btn-light"}}Not Found ({{counts.not_found}}){{/link-to}}
+          {{#link-to "review.annotate" review.id "found" class="btn btn-light"}}Found ({{counts.found}}){{/link-to}}
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="input-group">
+        {{input type="text" value=filter class="form-control" placeholder="filter with..." }}
+        <span class="input-group-btn">
+          <button class="btn btn-light" type="button" {{action "clearFilter"}}><i class="fa fa-remove"></i></button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <hr/>
+  {{#each data as |row|}}
+    {{review-cde-item
+      data=row
+      type=model.type
+      version=model.reviewVersion
+      conditions=model.conditions
+      add=(action "addOperation")
+      remove=(action "removeOperation")
+      clear=(action "clearOperations")}}
+    {{/each}}
+  <hr/>
+  <div class="row">
+    <div class="col-12 col-md-6">
+      Displaying <strong class="text-warning">{{pagination.displayStart}} - {{pagination.end}}</strong> of <strong class="text-warning">{{pagination.total}}</strong>
+    </div>
+    <div class="col-12 col-md-6 text-right">
+      {{#if pagination.prev-btn}}
+        <button class="btn btn-light" {{action "handlePagination" "prev"}}><i class="fa fa-chevron-left"></i> Prev</button>
+      {{else}}
+        <button class="btn disabled" disabled=true><i class="fa fa-chevron-left"></i> Prev</button>
+      {{/if}}
+
+      {{#if pagination.next-btn}}
+        <button class="btn btn-light" {{action "handlePagination" "next"}}>Next <i class="fa fa-chevron-right"></i></button>
+      {{else}}
+        <button class="btn disabled" disabled=true>Next <i class="fa fa-chevron-right"></i></button>
+      {{/if}}
+    </div>
+  </div>
+</div>

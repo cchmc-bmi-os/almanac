@@ -1,0 +1,189 @@
+<div class="container-fluid help" data-spy="scroll" data-target="#toc">
+  <div class="row">
+    <div class="col-3">
+      <div id="toc">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="#filter">Filtering CDE's</a></li>
+          <ul class="list-unstyled pl-3">
+            <li class="nav-item"><a class="nav-link" href="#filter-all">All Filters</a></li>
+            <li class="nav-item"><a class="nav-link" href="#filter-categories">Filter Categories</a></li>
+            <li class="nav-item"><a class="nav-link" href="#filter-count-search">CDE Count / Searching</a></li>
+            <li class="nav-item"><a class="nav-link" href="#filter-help">Help / Feedback</a></li>
+          </ul>
+          <li class="nav-item"><a class="nav-link" href="#search-results">Search Results</a></li>
+          <ul class="list-unstyled pl-3">
+            <li class="nav-item"><a class="nav-link" href="#search-results-cde">CDE Information</a></li>
+            <li class="nav-item"><a class="nav-link" href="#search-results-paginate">Pagination</a></li>
+          </ul>
+          <li class="nav-item"><a class="nav-link" href="#saved-cdes">Saved CDE's</a></li>
+          <ul class="list-unstyled pl-3">
+            <li class="nav-item"><a class="nav-link" href="#saved-cdes-panel">Viewing Panel</a></li>
+            <li class="nav-item"><a class="nav-link" href="#saved-cdes-expanding">Expanding Forms/Sections</a></li>
+            <li class="nav-item"><a class="nav-link" href="#saved-cdes-order">Changing Order</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+    <div class="col-9">
+      <h2 class="text-success">Using the Data Almanac Search Interface</h2>
+      <hr/>
+      <div>
+        <p>
+          The Data Almanac stores common data elements (CDEs) for the Longitudinal Pediatric Data Resource (LPDR). The search interface
+          allows you to explore the available CDEs, create your own datasets, and download these datasets in a summary and
+          REDCap&trade; format.
+        </p>
+      </div>
+      <div id="filter">
+        <h5 class="first text-primary">Filtering CDE's</h5>
+        <hr/>
+        <p class="first">
+          There are 6 ways to filter the CDEs on the search interface--5 different categories as well as a keyword field. You may select
+          some or all of the values to narrow down your results. For a more detailed explanation of the filter, select the
+          ‘?’ to the right of the filter header.
+        </p>
+        <img style="width: 650px;" src="img/help/all_filters.png" />
+        <p id="filter-all">
+          Selecting the filter box will display a list of the possible values for that filter. You can also type directly into the
+          filter box to narrow down the selection. The available options will update as you type.
+        </p>
+        <img style="width: 450px;" src="img/help/filter_detail.png" />
+        <p>&nbsp;</p>
+
+        <h5 id="filter-categories" class="text-primary">Filter Categories</h5>
+        <hr/>
+        <p class="first">
+          Case Report Form and Section: Choosing a filter for the Case Report Form (CRF) will limit the selection options for Section
+          to those that are part of the selected Case Report Form. Both the Case Report Form and Section filters refer to
+          the category of the CDE and its location on the electronic form.
+        </p>
+        <img src="img/help/filter_form_section.png" />
+        <p>&nbsp;</p>
+        <p>
+          Condition Category and Condition: Choosing a filter for the Condition Category will limit the selection options for Conditions
+          to those that are part of the selected Condition Category. Categories and Conditions are defined by the Secretary’s
+          Advisory Committee on Heritable Disorders in Newborns and Children for the Recommended Uniform Screening Panel.
+        </p>
+        <img src="img/help/filter_category_conditions.png" />
+        <p>&nbsp;</p>
+        <p>
+          Project/Investigator: If you are interested in a particular project or investigator, you can use this filter to obtain the
+          CDEs listed as part of that project.<br/><br/> Keyword: The Keyword search explores the CDE name, text,
+          and definition for the typed entry. If you want to only include results with the entire word, select the ‘Match
+          whole word’ checkbox.
+        </p>
+        <img src="img/help/filter_keyword_project.png" />
+        <p>&nbsp;</p>
+        <p>
+          The filters you select are AND'ed together as they are specified. Additional filters will limit the number of CDE's that
+          will be returned in the search. To remove a filter, select the 'x' on the right side of the selection. To remove
+          the text in the keyword field, clear the field.
+        </p>
+
+        <h5 id="filter-count-search" class="text-primary">CDE Count and Searching</h5>
+        <hr/>
+        <p class="first">
+          The number of CDEs in your results will continually update based on the filters you apply and can be seen at the bottom of
+          the filter selections. It is possible to apply filters such that <span class="text-primary">0</span>          CDEs are returned.
+        </p>
+        <img src="img/help/cde_count.png" />
+        <p>
+          After applying the filters, select the 'Search' button to show the CDE's which match your criteria.<br/><br/> To
+          start over at any time, select the ‘Clear’ button to reset all of the search filters. Filters are saved across
+          sessions, meaning that you can close your browser and return later to the same search session.
+        </p>
+        <img src="img/help/submit_reset.png" />
+        <p>&nbsp;</p>
+      </div>
+
+      <div id="search-results">
+        <h5 id="search-results-cde" class="first text-primary">CDE Information</h5>
+        <hr/>
+        <p class="first">
+          Once you click the 'Search' button you will see a list of CDEs that match your criteria. The name of the CDE in
+          <span class="text-primary">blue</span>, variable/database name in <span class="text-muted">gray</span>, and CRF
+          location are displayed for each CDE. Selecting the arrow to the left of the CDE name will show/hide the CDE definition
+          and disorders to which the CDE applies.
+        </p>
+        <img src="img/help/search_results.png" />
+        <p>
+          Selecting the large green '+' icon to the left of each CDE will add the individual CDE to your saved CDE's for saving and/or
+          exporting. There is also a '+ All' button to allow you to add all of the CDE's that match the search to your list
+          of saved CDE's.
+        </p>
+        <img src="img/help/add_all.png" />
+        <p>&nbsp;</p>
+
+        <h5 id="search-results-paginate" class="text-primary">Pagination</h5>
+        <hr/>
+        <p class="first">
+          By default, 10 CDEs are displayed on the page at a time. If you wish to see more results at once, you can change the number
+          of CDEs displayed by selecting the number buttons in the upper right of the results section. Up to 100 CDEs may
+          be displayed at a time.
+        </p>
+        <img style="width: 650px;" src="img/help/pagination_counts.png" />
+        <br/><br/>
+        <img style="width: 450px;" src="img/help/pagination_size.png" />
+        <p>
+          At the bottom of the page there are buttons that allow you to step through the search results. You can go to the beginning,
+          end, next, and previous pages with the pagination buttons.
+        </p>
+        <img style="width: 450px;" src="img/help/pagination_controls.png" />
+        <p>&nbsp;</p>
+      </div>
+      <div id="saved-cdes">
+        <h5 id="saved-cdes-panel" class="text-primary">CDE Viewing Panel</h5>
+        <hr/>
+        <p class="first">
+          You may click on the saved CDEs tab in the upper right to show and hide the saved CDE panel. It is hidden by default to be
+          able to show more of the search interface. No CDEs will be displayed on this panel until you elect to save a CDE
+          from your search results. The CDEs are organized by form.
+          <br/><br/> From this panel you may download the CDEs in a summary report or REDCapTM data dictionary format. If
+          you choose a REDCapTM data dictionary format, you may have inconsistencies in the branching logic provided if you
+          did not include a parent question in your CDE results. To minimize issues in branching logic, you may elect to
+          include parent questions in the download by selecting the checkbox.
+        </p>
+        <img src="img/help/saved_cdes.png" />
+        <p>&nbsp;</p>
+
+        <h5 id="saved-cdes-expanding" class="text-primary">Expanding Forms and Sections</h5>
+        <hr/>
+        <p class="first">
+          To expand the CRFs and section select the green arrow to the left of the CRF name. This will display the sections and CDEs
+          under that expanded section. The CDEs that do not have a section will be displayed first before all of the sections.
+        </p>
+        <img src="img/help/expand_form.png" />
+        <p>&nbsp;</p>
+
+        <h5 id="saved-cdes-order" class="text-primary">Changing the CDE Order</h5>
+        <hr/>
+        <p class="first">
+          You can expand or collapse all of the forms and sections by using the '- All' and '+ All' buttons. The order button will
+          allow you to manually order the CDEs in the saved CDE panel.
+        </p>
+        <img style="width: 250px;" src="img/help/all_buttons.png" />
+        <p>
+          Once you click on the order button the view will switch to show all of the forms and sections for you to re-order. You may
+          order the forms and sections but not the individual CDEs within a section. You can click and hold on any of the
+          headings to move the entire section, but cannot move form sections outside of a given form. Once a form/section
+          is selected it will show a gray background to show you where it will be placed.
+        </p>
+        <img style="height: 400px;" src="img/help/cde_ordering.gif" />
+        <p>
+          When the CDEs are ordered, you can click the green save button to save that order. You may also discard the new order by
+          clicking the cancel button.
+        </p>
+        <img style="width: 200px;" src="img/help/order_save.png" />
+
+        <h5 id="filter-help" class="text-primary" q>Help / Feedback</h5>
+        <hr/>
+        <p>
+          If you have questions, need additional information, or want to provide feedback, please select the ‘Provide Feedback to NBSTRN
+          about CDEs’ link or email the LPDR team at <a href="mailto:lpdr_nbstrn@acmg.net?subject=LPDR Data Almanac Feedback">lpdr_nbstrn@acmg.net</a>.
+        </p>
+        <img src="img/help/help-link.png" />
+        <p>&nbsp;</p>
+      </div>
+    </div>
+  </div>
+</div>

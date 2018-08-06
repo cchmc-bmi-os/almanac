@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-12">
+    {{#link-to 'review.index' class="btn btn-light"}}Cancel{{/link-to}}
+  </div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-12 col-md-6">
+    <h3 class="text-center text-primary">Upload your Data Dictionary</h3>
+    <hr/>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod neque justo, id convallis tellus tincidunt a. Ut semper
+      viverra mauris. Proin mattis fringilla tortor ut convallis. Mauris magna erat, ornare faucibus ante eu, sagittis aliquam
+      quam. Etiam est massa, aliquet id varius at, vulputate ut neque. Suspendisse eget metus sit amet justo consectetur
+      semper. Nunc libero nisl, semper eget turpis nec, blandit eleifend augue. Nunc ornare sodales urna sed fringilla. Nam
+      ullamcorper diam vel magna iaculis, et tincidunt justo tincidunt.
+    </p>
+  </div>
+</div>
+<div class="row justify-content-md-center">
+  <div class="col-12 col-md-6">
+    <hr/>
+    <div class="form-group{{unless reviewName ' has-danger'}}">
+      <label class="form-control-label">Review name</label>
+      {{input class="form-control" placeholder="Name for the review" value=reviewName}}
+      <small class="{{if reviewName 'text-muted' 'text-danger'}}">Enter a name for the review</small>
+    </div>
+    <hr/>
+  </div>
+</div>
+{{#liquid-if formValid use='fade'}}
+  {{review-upload name=reviewName initializeReview=initializeReview submit=(action 'submitReview')}}
+{{/liquid-if}}

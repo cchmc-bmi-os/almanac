@@ -1,0 +1,50 @@
+<div class="row justify-content-md-center">
+  <div class="col-12 col-md-6">
+    <form id="query-file" class="droparea needsclick dz-clickable">
+      {{input type="hidden" name="name" value=name}}
+      <h4 class="blurb dz-clickable">Drag file or click to upload</h4>
+    </form>
+  </div>
+</div>
+{{#liquid-if showPreview use='toDown'}}
+  <hr/>
+  <div class="row justify-content-md-center">
+    <div class="col-12 col-md-10">
+      <div id="preview">
+        <h2 class="text-primary text-center">Review Data for {{name}}</h2>
+        <p class="text-primary text-center">This is just the first 10 lines of the file, if everything looks ok submit it for review.</p>
+        <div class="alert alert-warning text-center">
+          If something looks wrong please check the uploaded file to see if there are any formatting issues
+        </div>
+        <hr/>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Form</th>
+              <th>Section</th>
+              <th>Type</th>
+              <th>Label</th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each preview as |line|}}
+              <tr>
+                <td>{{line.[0]}}</td>
+                <td>{{line.[1]}}</td>
+                <td>{{line.[2]}}</td>
+                <td>{{line.[3]}}</td>
+                <td>{{line.[4]}}</td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+      <hr/>
+      <div class="form-group text-center">
+        <button class="btn btn-primary" {{action 'submitReview'}} disabled={{if initializeReview.isRunning 'disabled'}}>Submit for Review</button>
+        {{#link-to 'review' class="btn btn-light"}}Cancel{{/link-to}}
+      </div>
+    </div>
+  </div>
+{{/liquid-if}}

@@ -1,0 +1,61 @@
+{{#if siteQuestions.length}}
+<div class="row">
+  <div class="col-8 blurb">
+    Displaying page <strong class="page">{{page}}</strong> of <strong class="pages">{{pages}}</strong>
+    <span class="text-muted blurb-info">(The table of results below only shows a small portion of the CDE Catalog.)</span>
+  </div>
+  <div class="col-4 text-right">
+    Per page:
+    <div class="btn-group" role="group">
+      <button type="button" class="{{if (eq searchFilters.page_size 10) "active "}}btn btn-light" {{action "setPageSize" 10}}>10</button>
+      <button type="button" class="{{if (eq searchFilters.page_size 25) "active "}}btn btn-light" {{action "setPageSize" 25}}>25</button>
+      <button type="button" class="{{if (eq searchFilters.page_size 50) "active "}}btn btn-light" {{action "setPageSize" 50}}>50</button>
+      <button type="button" class="{{if (eq searchFilters.page_size 100) "active "}}btn btn-light" {{action "setPageSize" 100}}>100</button>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="row">
+  <div class="col-12 header">
+    <div class="action">
+      <button class="add-all-btn btn btn-success btn-sm{{if savedCdes.addAllInProgress " disabled"}}" {{action "addAllSavedCdes"}}>
+        <i class="fa fa-fw {{addAllIcon}}" title="Add to Saved CDE's"></i> All
+      </button>
+    </div>
+    <h6 class="title">Title and CDE information</h6>
+  </div>
+</div>
+<hr/>
+{{#each siteQuestions as |siteQuestion|}}
+  {{search-result-row siteQuestion=siteQuestion}}
+{{/each}}
+<div class="row pagination-buttons">
+  <div class="col-12 text-right">
+    {{#if (gt page 1)}}
+      <button class="btn btn-light" {{action "setPage" "first"}}>
+        <i class="fa fa-fw fa-fast-backward"></i> First
+      </button>
+      <button class="btn btn-light" {{action "setPage" "previous"}}>
+        <i class="fa fa-fw fa-step-backward"></i> Prev
+      </button>
+    {{/if}}
+    {{#if (lt page pages)}}
+      <button class="btn btn-light" {{action "setPage" "next"}}>
+        <i class="fa fa-fw fa-step-forward"></i> Next
+      </button>
+      <button class="btn btn-light" {{action "setPage" "last"}}>
+        <i class="fa fa-fw fa-fast-forward"></i>Last
+      </button>
+    {{/if}}
+  </div>
+</div>
+{{else}}
+<div class="row loading">
+  <div class="col-12 text-center">
+    <div class="loading-icon">
+      <p><i class="loading-icon fa fa-spinner fa-pulse"></i></p>
+      Loading...
+    </div>
+  </div>
+</div>
+{{/if}}

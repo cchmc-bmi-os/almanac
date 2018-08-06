@@ -1,0 +1,18 @@
+{{#if sectionIsNotNone}}
+    {{#if savedCdes.isOrdering}}
+        <h5 class="section">{{section.name}}</h5>
+    {{else}}
+        <h5 class="section {{savedCdes.isOrdering}}">
+            <i class="text-success fa fa-fw {{expandIcon}}" {{action (toggle 'section.expanded' this)}}></i>
+            {{section.name}}
+            <i class="text-danger fa fa-remove" {{action 'remove'}}></i>
+        </h5>
+    {{/if}}
+    {{#if (and expanded (not savedCdes.isOrdering))}}
+        <ul class="cdes">
+        {{#each section.cdes as |cde|}}
+            {{saved-cde-cde formId=formId sectionId=sectionId cde=cde}}
+        {{/each}}
+        </ul>
+    {{/if}}
+{{/if}}

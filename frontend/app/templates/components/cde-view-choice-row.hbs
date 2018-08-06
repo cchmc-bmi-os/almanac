@@ -1,0 +1,11 @@
+<div class="choice" {{action (toggle 'showDefinition' this)}}>{{choice.text}}</div>
+{{#liquid-if showDefinition use='toDown'}}
+  <div class="card">
+    <div class="card-body">
+      {{if choice.definition choice.definition 'No Definition provided'}}
+      {{#if choice.source_name}}
+        <sub>[{{choice.source_number}}]</sub>
+      {{/if}}
+    </div>
+  </div>
+{{/liquid-if}}

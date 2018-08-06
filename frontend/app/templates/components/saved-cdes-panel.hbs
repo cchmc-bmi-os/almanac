@@ -1,0 +1,74 @@
+<div class="tab" {{action (toggle 'showSavedCdes' this)}}>
+  <p><span class="count badge badge-primary">{{{savedCdes.count}}}</span></p>
+  CDE's
+</div>
+<div class="card">
+  <div class="card-header">
+    <div class="action">
+      <button class="btn btn-success" {{action 'clearSavedCdes'}}>Clear</button>
+    </div>
+    Saved CDE's
+  </div>
+  {{#if savedCdes.hasCdes}}
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6 text-center">
+          <a href="{{exportBase}}summary{{if savedCdes.includeBranchingLogic '?branching=True'}}" target="_blank" class="btn btn-light">
+            <i class="fa fa-download"></i> Summary
+          </a>
+        </div>
+        <div class="col-6 text-center">
+          <a href="{{exportBase}}redcap{{if savedCdes.includeBranchingLogic '?branching=True'}}" target="_blank" class="btn btn-light">
+            <i class="fa fa-download"></i> REDCap
+          </a>
+        </div>
+      </div>
+      <hr/>
+      <div class="row">
+        <div class="col-12 text-right">
+          {{#if savedCdes.isOrdering}}
+            <button class="btn btn-success btn-sm" {{action 'saveOrdering'}}>
+              <i class="fa fa-save"></i> Save
+            </button>
+            <button class="btn btn-light btn-sm" {{action 'cancelOrdering'}}>
+              <i class="fa fa-remove"></i> Cancel
+            </button> {{else}}
+            <button class="btn btn-light btn-sm {{if savedCdes.expandAllInProgress 'disabled'}}" {{action 'expandAllCdes'}}>
+              <i class="fa {{expandAllIcon}}"></i> All
+            </button>
+            <button class="btn btn-light btn-sm {{if savedCdes.collapseAllInProgress 'disabled'}}" {{action 'collapseAllCdes'}}>
+              <i class="fa {{collapseAllIcon}}"></i> All
+            </button>
+            <button class="btn btn-light btn-sm" {{action 'toggleOrdering'}}>
+              <i class="fa fa-sort"></i> Order
+            </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+    <div class="card-body card-content">
+      {{#if savedCdes.isOrdering}}
+        <p class="text-muted">To order CDE's click on the title and drag to desired location</p>
+      {{/if}}
+
+      <div class="form-ordering">
+        {{#if savedCdes.isOrdering}}
+          {{#sortable-group tagName="div" onChange="updateOrdering" as |group|}}
+            {{#each savedCdes.sourceData.questions as |form formId|}}
+              {{#sortable-item tagName="div" model=form group=group}}
+                {{saved-cde-form form=form formId=formId}}
+              {{/sortable-item}}
+            {{/each}}
+          {{/sortable-group}}
+        {{else}}
+          {{#each savedCdes.sourceData.questions as |form formId|}}
+            {{saved-cde-form form=form formId=formId}}
+          {{/each}}
+        {{/if}}
+      </div>
+    </div>
+  {{else}}
+    <hr/>
+    <p class="text-center card-content">You have no saved CDE's</p>
+  {{/if}}
+</div>

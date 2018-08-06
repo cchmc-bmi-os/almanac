@@ -1,0 +1,52 @@
+.help {
+  margin-top: 1rem;
+  font-size: 14pt;
+  text-align: center;
+
+  @media(min-width: 768px) {
+    #toc {
+      position: fixed;
+    }
+  }
+
+  h5 {
+    text-align: left;
+    padding: 25px 0 0 0;
+    margin: 0;
+    font-size: 18pt;
+
+    &.first {
+      padding-top: 0;
+    }
+  }
+
+  p {
+    text-align: justify;
+    padding: 25px 0;
+
+    &.first {
+      padding-top: 0;
+    }
+  }
+
+  .nav {
+    text-align: left;
+    font-size: 12pt;
+    margin-top: 1rem;
+
+    > li {
+      font-weight: bold;
+      font-size: 14pt;
+      margin-top: 1rem;
+    }
+  }
+
+  img {
+    max-width: 100%;
+    box-shadow: 0 0 5px darken($brand-primary, 25%);
+  }
+
+  .content {
+    border-left: 1px solid darken($white, 15%);
+  }
+}

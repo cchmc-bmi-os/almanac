@@ -1,0 +1,8 @@
+env/
+.config
+__pycache__
+*.pyc
+settings_local.py*
+.cache
+tmp/
+uwsgi/log.*

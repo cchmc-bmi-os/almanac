@@ -1,0 +1,257 @@
+<div class="card">
+  <div class="card-body">
+    {{#if cde.operations.length}}
+      <div class="row">
+        <div class="col-12 text-right">
+          <h4 class="{{if operationNotAccepted "text-warning" "text-success"}}" title="{{if operationNotAccepted "At least on annotation has not been accepted."}}">{{cde.operations.length}} Annotations(s)</h4>
+        </div>
+      </div>
+    {{/if}}
+    <div class="row">
+      <div class="col-12 col-md-8">
+        <h3 class="text-primary">
+          {{cde.text}}
+        </h3>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="status text-muted text-right">
+          <div class="btn-group">
+            {{#if showAnnotationsButton}}
+              <a class="btn btn-light" {{action 'toggleActions'}}>
+                {{#if showActions}}
+                  <i class="fa fa-info"></i> Information
+                {{else}}
+                  <i class="fa fa-random"></i> Annotations
+                {{/if}}
+              </a>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+    {{#if showActions}}
+      <div class="row body">
+        <div class="col-12 col-md-8">
+          {{#unless review}}
+            <div class="form-group">
+              <label>Add a Annotation</label>
+              {{#power-select
+                allowClear=true
+                options=allowedOperations
+                selected=currentOperation
+                searchField='text'
+                placeholder='Select a Annotation'
+                searchPlaceholder='Type to filter Annotations...'
+                onchange=(action 'updateOperations' cde.name) as |item|
+              }}
+                {{item.text}}
+              {{/power-select}}
+            </div>
+            {{#if currentOperation}}
+              <hr/>
+              <h6>{{currentOperation.text}}</h6>
+              {{#if showQuestionSelect}}
+                {{#if (eq currentOperation.id 'add_existing')}}
+                  <label class="c-input c-radio">
+                    {{radio-button value='after' groupValue=addExistingType}}
+                    <span class="c-indicator"></span> Add after this CDE
+                  </label>
+                  <label class="c-input c-radio">
+                    {{radio-button value='before' groupValue=addExistingType}}
+                    <span class="c-indicator"></span> Add before this CDE
+                  </label>
+                {{/if}}
+
+                {{#power-select
+                  searchPlaceholder='Type at least 3 characters to search'
+                  search=(perform searchCdes)
+                  selected=additionalInfo
+                  onchange=(action (mut additionalInfo)) as |cde|
+                }}
+                  <strong>{{cde.name}}</strong> - {{cde.text}} <span class="text-muted">({{cde.site}})</span>
+                {{/power-select}}
+                <br/>
+              {{/if}}
+
+              {{#if showTypeSelect}}
+                {{#power-select
+                  allowClear=true
+                  options=types
+                  selected=additionalInfo
+                  searchField='text'
+                  placeholder='Select an question type'
+                  searchPlaceholder='Type to filter types...'
+                  onchange=(action (mut additionalInfo)) as |item|
+                }}
+                  {{item.text}}
+                {{/power-select}}
+                <br/>
+              {{/if}}
+
+              {{#if showTextEntry}}
+                {{input class="form-control" value=additionalInfo}}
+                {{#if cdeNameError}}
+                  <span class="text-danger">{{cdeNameError}}</span>
+                  <br/>
+                {{/if}}
+                <br/>
+              {{/if}}
+
+              {{#if showTextareaEntry}}
+                {{textarea class="form-control" value=additionalInfo rows=5}}
+                <br/>
+              {{/if}}
+
+              {{#if showConditionSelect}}
+                {{#power-select-multiple
+                  allowClear=true
+                  options=conditions
+                  selected=additionalInfo
+                  searchField='name'
+                  placeholder='Select a condition'
+                  searchPlaceholder='Type to filter conditions...'
+                  onchange=(action (mut additionalInfo)) as |item|
+                }}
+                  {{item.name}}
+                {{/power-select-multiple}}
+                <br/>
+              {{/if}}
+
+              {{#if showAddBtn}}
+                <button class="btn btn-primary" disabled={{not-eq cdeNameError null}} {{action 'addOperation'}}>Add Annotation</button>
+              {{/if}}
+            {{/if}}
+          {{/unless}}
+        </div>
+        <div class="col-12 col-md-4 text-right">
+          <hr class="hidden-md-up" />
+          {{#if cde.operations.length}}
+            <div>
+              <button class="btn btn-sm btn-warning" {{action 'toggleClearAllConfirm' cde.name}}>Clear All</button>
+            </div>
+          {{/if}}
+          <h4 class="text-center">Suggested Annotations</h4>
+          <div class="list-group">
+            {{#each cde.operations as |operation opId|}}
+              <div class="list-group-item justify-content-between{{unless operation.accepted " bg-danger text-light"}}" title="{{unless operation.accepted "Annotations has NOT been accepted"}}">
+                {{operation.operation}}
+
+                {{#if operation.additional.name}}
+                  : {{operation.additional.name}}
+                {{else if operation.additional}}
+                  : {{string-limit operation.additional}}
+                {{/if}}
+
+                {{#if operation.location}}
+                  <span class="text-muted">({{operation.location}})</span>
+                {{/if}}
+                <span class="badge badge-pill badge-danger pointer" {{action 'removeOperation' operation}}>
+                  <i class="fa fa-remove"></i>
+                </span>
+              </div>
+            {{else}}
+              <p class="text-muted text-center">No Annotations Defined</p>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+    {{else}}
+      <div class="row">
+        <div class="col-12 col-md-6">
+          <h6 class="text-primary">Attributes</h6>
+          <table class="table table-striped table-bordered table-sm">
+            <tbody>
+              <tr>
+                <td><strong>Form</strong></td>
+                <td>{{cde.form}}</td>
+              </tr>
+              {{#if cde.section}}
+                <tr>
+                  <td><strong>Section</strong></td>
+                  <td>{{cde.section}}</td>
+                </tr>
+              {{/if}}
+              <tr>
+                <td><strong>Name</strong></td>
+                <td>{{review-cde-diff cde=cde differences=differences key="name"}}</td>
+              </tr>
+              <tr>
+                <td><strong>Data Type</strong></td>
+                <td>{{cde.type}}</td>
+              </tr>
+              <tr>
+                <td><strong>Branching Logic</strong></td>
+                <td>{{review-cde-diff cde=cde differences=differences key="branching_logic"}}</td>
+              </tr>
+              <tr>
+                <td><strong>Label</strong></td>
+                <td>{{review-cde-diff cde=cde differences=differences key="text"}}</td>
+              </tr>
+              <tr>
+                {{#if (eq cde.type 'calc')}}
+                  <td><strong>Calculation</strong></td>
+                  <td>{{review-cde-diff cde=cde differences=differences key="calculation"}}</td>
+                {{else}}
+                  <td><strong>Choices</strong></td>
+                  <td>{{review-cde-diff cde=cde differences=differences key="choices"}}</td>
+                {{/if}}
+              </tr>
+              {{#if cde.validation}}
+                <tr>
+                  <td><strong>Text Validation</strong></td>
+                  <td>{{review-cde-diff cde=cde differences=differences key="validation"}}</td>
+                </tr>
+              {{/if}}
+            </tbody>
+          </table>
+        </div>
+        <div class="col-12 col-md-6">
+          {{#if (not-eq type 'found')}}
+            <h6 class="text-primary">Top 5 Matches: <small>(best match first)</small></h6>
+            <table class="table table-striped table-bordered table-sm">
+              <thead>
+                <tr>
+                  <th class="text-center"></th>
+                  <th>Project</th>
+                  <th>Name</th>
+                  <th>Label (first 50 characters)</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each possible as |pCde|}}
+                  <tr>
+                    <td class="text-center"><button type="button" disabled={{if hasAReplaceOperation true}} class="btn btn-primary btn-sm" {{action 'forceReplace' pCde.name}}>Replace With</button></td>
+                    <td>{{pCde.site}}</td>
+                    <td>{{pCde.name}}</td>
+                    <td>{{string-limit pCde.text numChars=50}}</td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{/if}}
+        </div>
+      </div>
+    {{/if}}
+  </div>
+</div>
+{{#if showClearAll}}
+  {{#modal-dialog targetAttachment="center" onClose=(action 'toggleClearAllConfirm')}}
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Are you sure?</h5>
+          <button type="button" class="close ml-auto" aria-label="Close" {{action 'toggleClearAllConfirm'}}>
+                  <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+        <div class="modal-body">
+          <p class="text-center">Are you sure you want to clear all operations?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" {{action 'clearOperations'}}>Yes, clear them</button>
+          <button type="button" class="btn btn-light" {{action 'toggleClearAllConfirm'}}>Cancel</button>
+        </div>
+      </div>
+    </div>
+  {{/modal-dialog}}
+{{/if}}

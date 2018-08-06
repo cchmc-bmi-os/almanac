@@ -1,0 +1,36 @@
+<hr class="form-hr" />
+{{#if savedCdes.isOrdering}}
+  <h4 class="form">{{form.name}}</h4>
+{{else}}
+  <h4 class="form">
+    <i class="text-success fa fa-fw {{expandIcon}}" {{action (toggle 'form.expanded' this)}}></i>
+    {{form.name}}
+    <i class="text-danger fa fa-remove" {{action 'remove'}}></i>
+  </h4>
+{{/if}}
+{{#if expanded}}
+  {{#if (not savedCdes.isOrdering)}}
+    <ul class="cdes none">
+      {{#each noSectionCdes as |cde|}} {{saved-cde-cde formId=formId sectionId=0 cde=cde}} {{/each}}
+    </ul>
+  {{/if}}
+  <div class="section-ordering">
+    {{#if savedCdes.isOrdering}}
+      {{#sortable-group tagName="div" onChange="updateOrdering" as |group|}}
+        {{#each form.sections as |section sectionId|}}
+          {{#if section.name}}
+            {{#sortable-item tagName="div" model=section group=group}}
+              {{saved-cde-section formId=formId section=section sectionId=sectionId}}
+            {{/sortable-item}}
+          {{/if}}
+        {{/each}}
+      {{/sortable-group}}
+    {{else}}
+      {{#each form.sections as |section sectionId|}}
+        {{#if section.name}}
+          {{saved-cde-section formId=formId section=section sectionId=sectionId}}
+        {{/if}}
+      {{/each}}
+    {{/if}}
+  </div>
+{{/if}}

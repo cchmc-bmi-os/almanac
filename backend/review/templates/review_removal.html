@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" style="font-family: sans-serif;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;">
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body style="margin: 20px">
+        <h1 style="margin-bottom: 30px;">Requesting to remove review</h1>
+        {% if original_to %}
+          <p style="margin: 20px 0;">
+            <strong>Send to:</strong> {{original_to|join:', '}}
+          </p>
+        {% endif %}
+        <p style="margin: 20px 0;">
+            Hello CCHMC Admins,
+        </p>
+        <p style="margin: 20px 0;">
+            The review `{{review.name}}` has been requested to be removed.  This request
+            was sent by {{user.first_name}} {{user.last_name}}.  Please take a look and
+            remove the review or contact the user if you have any questions.  The users
+            email address is <a href="mailto:{{user.email}}">{{user.email}}</a>
+        </p>
+
+        <p style="margin: 20px 0;">
+            <h4>You can login to view this review here:</h4>
+            <ul>
+                <li><a href="{{url}}/review">{{url}}/review</a></li>
+            </ul>
+        </p>
+        <p>
+            The url for login is: {{ url }}
+        </p>
+
+        <p style="margin: 20px 0;">
+            <br/>
+            <hr style="height: 0;-moz-box-sizing: content-box;box-sizing: content-box;margin-top: 20px;margin-bottom: 20px;border: 0;border-top: 1px solid #eee;"/>
+            <em>
+                This is an automated message from <a href="{{ url }}">{{ url }}</a>.<br/>
+                This email is an automated message, if you have any problems or questions you may email <a href="mailto:help-lpdr@bmi.cchmc.org?subject=[Data Almanac] Help please">help-lpdr@bmi.cchmc.org</a> for help.
+            </em>
+        </p>
+    </body>
+</html>

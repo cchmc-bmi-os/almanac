@@ -1,0 +1,20 @@
+<div class="filter form-group">
+  <label>
+    {{label}}
+    <a class="da-popover" onclick="return false;" href="#">
+      <i class="fa fa-question-circle"></i>
+      {{#bs-popover title=label placement="bottom" triggerEvents="focus"}}{{popover}}{{/bs-popover}}
+    </a>
+  </label>
+  {{#power-select
+    allowClear=true
+    options=data
+    selected=value
+    searchField=labelPath
+    placeholder=placeholder
+    searchPlaceholder='Type to filter selection...'
+    onchange=(action 'updateFilter') as |item|
+  }}
+    {{get item labelPath}}
+  {{/power-select}}
+</div>

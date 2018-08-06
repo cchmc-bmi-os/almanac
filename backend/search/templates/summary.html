@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>CDE Summary Export ({{count}})</title>
+    </head>
+    <body>
+        <h1 style="text-align: center;">
+            CDE Summary Export<br/>
+            <small>{{count}} CDE's</small><br/>
+            <small style="color: #888;">{% now 'D, j F Y h:i A' %}</small>
+        </h1>
+        <table style="width: 100%;">
+            <tbody>
+            {% for question in questions %}
+                <tr>
+                    <td style="width: 70%;">
+                        <h3 style="margin: 0;">{{question.text}}</h3>
+                        <span style="color: #05c; font-weight: bold; font-size: 10pt;">{{question.name}}</span> -
+                        <span style="color: #999; font-size: 10pt;">{{question.full_form}}</span>
+                    </td>
+                    <td style="text-align: center; width: 30%;">
+                        {{question.type}} Question
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width: 50%; vertical-align: top;">
+                        <p style="margin: 15px 0;">{{question.definition}}</p>
+                        <p style="margin: 15px 0;">{{question.definition_note}}</p>
+                        <p>
+                            <a href="{{url}}{{question.name}}" target="_blank">{{url}}{{question.name}}</a>
+                        </p>
+                    </td>
+                    <td style="width: 50%; text-align: center;">
+                        <h4 style="margin-bottom: 5px;">Choices/Codes</h4>
+                        {% if question.choices %}
+                        <ul style="list-style: none; margin-top: -5px; text-align: left;">
+                            {% for choice in question.choices %}
+                            <li>{{choice.id}}: {{choice.value}}
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p>No Choices</p>
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%">
+                        {% for tag in question.tags %}
+                        <strong>{{tag.tag}}</strong>: {{tag.value}}<br/>
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="width: 100%">
+                        <hr>
+                    </td>
+                </tr>
+            {% endfor%}
+            </tbody>
+        </table>
+    </body>
+</html>

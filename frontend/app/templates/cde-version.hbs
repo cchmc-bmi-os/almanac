@@ -1,0 +1,27 @@
+<div class="cde-view">
+  {{cde-version-menu}}
+  <div class="container-fluid">
+    <h1 class="text-primary cde">{{model.name}} Versions</h1>
+    <hr/>
+    <div class="row">
+      <div class="col-12">
+        <h3>Definition Versions</h3>
+
+        {{#each model.all_definitions as |definition|}}
+        <div class="card">
+          <div class="card-body">
+            <h4>Version #{{definition.version}}</h4>
+            {{#if definition.definition}}
+            <p>{{definition.definition}}</p>
+            {{else}}
+            <p>No Definition</p>
+            {{/if}} {{#if definition.note}} {{definition.note}} {{/if}}
+          </div>
+        </div>
+        {{else}} No previous versions {{/each}}
+      </div>
+    </div>
+  </div>
+
+  {{cde-version-footer siteQuestion=model}}
+</div>

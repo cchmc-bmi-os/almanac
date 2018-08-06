@@ -1,0 +1,17 @@
+<div class="filter form-group">
+  <label>
+    {{label}}
+    <a class="da-popover" onclick="return false;" href="#">
+      <i class="fa fa-question-circle"></i>
+      {{#bs-popover title=label placement="bottom" triggerEvents="focus"}}{{popover}}{{/bs-popover}}
+    </a>
+  </label>
+  <div class="pull-right">
+    <label class="whole-word-label" for="whole_word">Match whole word</label>
+    {{input type="checkbox" name="wholeWord" checked=wholeWord change=(action "updateFilters" value wholeWord)}}
+  </div>
+  {{#if value}}
+    <span class="ember-power-select-clear-btn clear-btn-keyword" {{action 'updateFilters' null}}>×</span>
+  {{/if}}
+  {{input type="text" class="form-control" value=value key-up=(action "updateFilters")}}
+</div>

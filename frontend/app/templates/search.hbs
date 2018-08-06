@@ -1,0 +1,122 @@
+<div class="search">
+  {{saved-cdes-panel}}
+
+  <div class="container">
+    <div class="filters">
+      <h4 class="heading">Choose a Case Report Form and/or Section</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          {{filter-select
+            name="form"
+            data=forms
+            labelPath="name"
+            value=searchFilters.form
+            label="Case Report Form"
+            popover="CDEs are organized into Case Report Forms labeled to match clinical workflow. Select
+              the main Case Report Form of interest. Selecting a Case Report Form will narrow the Section
+              options so that only those Sections available on a given Case Report Form may be chosen." }}
+        </div>
+        <div class="col-12 col-md-6">
+          {{filter-select
+            name="section"
+            data=sections
+            labelPath="fullForm"
+            value=searchFilters.section
+            label="Section"
+            popover="Select the section within a Case Report Form. You may define the Case Report Form first to
+              narrow the Section options." }}
+        </div>
+      </div>
+      <h4 class="heading">Choose a Condition Category and/or Conditions</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          {{filter-select
+            name="conditionCategory"
+            data=conditionCategories
+            labelPath="label"
+            value=searchFilters.conditionCategory
+            label="Condition Category"
+            popover="Select the category for a condition as defined by the Secretary’s Advisory Committee on
+              Heritable Disorders in Newborns and Children (SACHDNC) for the Recommended Uniform Screening Panel
+              (RUSP)." }}
+        </div>
+        <div class="col-12 col-md-6">
+          {{filter-select
+            name="condition"
+            data=conditions
+            labelPath="label"
+            value=searchFilters.condition
+            label="Condition"
+            popover="Select a condition as defined by the Secretary’s Advisory Committee on Heritable Disorders
+              in Newborns and Children (SACHDNC) for the Recommended Uniform Screening Panel (RUSP)." }}
+        </div>
+      </div>
+      <h4 class="heading">Choose Other Categories</h4>
+      <div class="row">
+        <div class="col-12 col-md-6">
+          {{filter-text
+            name="keyword"
+            label="Keyword"
+            value=searchFilters.keyword
+            wholeWord=searchFilters.keywordWholeWord
+            popover="Use a keyword to search the text of the common data element name, type, database name, and/or
+            definition." }}
+        </div>
+        <div class="col-12 col-md-6">
+          {{filter-select
+            name="site"
+            data=sites
+            labelPath="display"
+            value=searchFilters.site
+            label="Common Data Element Sets"
+            popover="Select a set of CDEs used in a current LPDR project and/or curated by a workgroup." }}
+        </div>
+      </div>
+      <div class="row stats">
+        <div class="col-12">
+          <hr/>
+          <span class="question-count">
+            {{#if cdeCount.isRunning}}
+              <i class="fa fa-spinner fa-pulse"></i>
+            {{else}}
+              {{cdeCount.value}}
+            {{/if}}
+          </span> CDEs from search criteria
+          <hr/>
+        </div>
+      </div>
+      <div class="row actions">
+        <div class="col-12 col-md-3">
+          <p>
+            <button class="btn btn-success btn-block search-btn{{if (eq cdeCount.value 0) ' disabled'}}" {{action "showResults"}}>
+              <i class="fa fa-search"></i>
+              Show CDE's
+            </button>
+            <div class="btn-help-text">Click the search button to see the CDE's</div>
+          </p>
+        </div>
+        <div class="col-12 col-md-2">
+          <p>
+            <button class="btn btn-light btn-block clear-btn" {{action 'clearAllFilters'}}>
+              Clear
+            </button>
+          </p>
+        </div>
+        <div class="col-12 col-md-7 text-center">
+          <a class="help-link" href="mailto:{{model.settings.help_email}}?subject={{model.settings.help_email_subject}}">
+            <i class="fa fa-bullhorn"></i>
+            {{model.settings.help_email_text}}
+          </a> ({{model.settings.help_email}})
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        {{#if showResults}}
+          <hr/>
+          {{search-results siteQuestions=siteQuestions total=cdeCount.value showResults=(action "showResults")}}
+        {{/if}}
+      </div>
+    </div>
+  </div>
+</div>

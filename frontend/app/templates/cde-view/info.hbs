@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        Additional Information on the Question
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="row justify-content-md-center">
+  <div class="col-md-4">
+    <div class="card">
+      <div class="card-header bg-primary text-light text-center">
+        Tags
+      </div>
+      <div class="card-body">
+        <div class="row">
+          {{#each model.tags as |tag|}}
+            <div class="col-6 text-right">
+              <strong>{{tag.label}}:</strong>
+            </div>
+            <div class="col-6">
+              {{tag.value}}
+            </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="card">
+      <div class="card-header text-light bg-primary text-center">
+        Information
+      </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-6 text-right">
+            <strong>Variable Name:</strong>
+          </div>
+          <div class="col-6">
+            {{model.name}}
+          </div>
+          <div class="col-6 text-right">
+            <strong>Variable Type:</strong>
+          </div>
+          <div class="col-6">
+            {{model.type}}
+          </div>
+          <div class="col-6 text-right">
+            <strong>Min Value:</strong>
+          </div>
+          <div class="col-6">
+            {{if model.min_val model.min_val 'None'}}
+          </div>
+          <div class="col-6 text-right">
+            <strong>Max Value:</strong>
+          </div>
+          <div class="col-6">
+            {{if model.max_val model.max_val 'None'}}
+          </div>
+          <div class="col-6 text-right">
+            <strong>Unknown Value:</strong>
+          </div>
+          <div class="col-6">
+            {{if model.unknown_val model.unknown_val 'None'}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

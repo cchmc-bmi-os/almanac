@@ -1,0 +1,89 @@
+.search {
+  padding-top: 1.5rem;
+
+  .filters {
+    background-color: $white;
+    border: 1px solid darken($white, 35%);
+    border-radius: 3px;
+    box-shadow: 0 0 5px darken($white, 25%);
+    padding: 1.25rem;
+    padding-bottom: 0;
+
+    .ba-popover {
+      border: 0;
+      background-color: $white;
+    }
+
+    .heading {
+      font-size: 1.25rem;
+      font-weight: normal;
+      border-bottom: 1px solid darken($white, 10%);
+    }
+
+    .row {
+      margin-bottom: 10px;
+
+      &.actions {
+        margin-bottom: -0.25rem;
+
+        .search-btn,
+        .clear-btn {
+          margin-top: 0.75rem;
+        }
+
+        .btn-help-text {
+          text-align: center;
+          font-size: 0.75rem;
+        }
+      }
+
+      &.stats {
+        color: $brand-primary;
+        font-size: 14pt;
+        font-weight: bold;
+        text-align: center;
+        margin-bottom: -0.25rem;
+
+        hr {
+          margin: 0.25rem;
+        }
+
+        .question-count {
+          color: $brand-success;
+        }
+      }
+
+    }
+
+    .filter {
+      label {
+        font-size: .9rem;
+        font-weight: bold;
+
+        .fa {
+          margin-left: 5px;
+          font-size: 1rem;
+          color: $brand-primary;
+          cursor: pointer;
+        }
+      }
+
+      .clear-btn-keyword {
+        top: 2.34rem;
+        right: 1.75rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  .help-link {
+    display: block;
+    color: darken($white, 40%);
+    text-decoration: none;
+    margin-top: 7px;
+
+    &:hover {
+      color: darken($white, 60%);
+    }
+  }
+}

@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-12 text-right">
+    {{link-to "Back to reviews" "review" class="btn btn-light"}}
+    <a class="btn btn-primary" href="{{exportUrl}}">Download Final Data Dictionary</a>
+  </div>
+</div>
+
+<hr/>
+
+<div class="row">
+  <div class="col-12">
+    {{review-info-card title='Changes' data=changes}}
+  </div>
+</div>
+
+<hr/>
+{{#if isAdmin}}
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12 col-md-6">
+              <h4>Update the Data Almanac</h4>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          {{#if updateError}}
+            <div class="alert alert-danger">
+              {{updateError}}
+            </div>
+          {{/if}}
+          <p>
+            To update the Data Almanac, select or create a site to replace the CDEs.  You may type in the name of
+            the site to create a new site.
+          </p>
+          {{#power-select-with-create
+              allowClear=true
+              options=model.sites
+              selected=selectedSite
+              searchField='name'
+              placeholder='Select a site'
+              searchPlaceholder='Type to filter types...'
+              onchange=(action (mut selectedSite))
+              oncreate=(action "createSite") as |item|
+          }}
+            {{item.name}}
+          {{/power-select-with-create}}
+
+          {{#if selectedSite}}
+            <br/>
+            <span class="text-warning">** Warning this will take a bit of time depending on how many CDEs you have.</span>
+            <button class="btn btn-primary float-right" disabled={{doUpdateDa.isRunning}} onclick={{action 'updateDa'}}>
+              {{#if doUpdateDa.isRunning}}
+                {{fa-icon 'spinner' spin=true}} Updating...
+              {{else}}
+                {{updateButtonText}}
+              {{/if}}
+            </button>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+  </div>
+{{/if}}

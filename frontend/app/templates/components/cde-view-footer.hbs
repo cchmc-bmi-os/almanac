@@ -1,0 +1,34 @@
+<div class="container-fluid cde-footer">
+  <div class="row version">
+    <div class="col-12 text-center text-sm-right">
+      <h4 class="text-success">Definition Version: {{siteQuestion.definition.version}}</h4>
+      {{#link-to 'cde-version' siteQuestion.name class="btn btn-primary"}}
+        <i class="fa fa-share"></i> Version Log
+      {{/link-to}}
+    </div>
+  </div>
+  <hr/>
+  <div class="row sources">
+    <div class="col-12">
+      <h4 class="text-muted">Sources</h4>
+      <div class="row">
+        {{#if siteQuestion.definition.source_name}}
+          <div class="col-md-4 source">
+            [{{siteQuestion.definition.source_number}}] <a href="{{siteQuestion.definition.source_address}}">{{siteQuestion.definition.source_name}}</a><br/>
+            <span class="sub-source">{{siteQuestion.definition.source_address}}</span>
+            <br/><br/>
+          </div>
+        {{/if}}
+        {{#each siteQuestion.choices as |choice|}}
+          {{#if choice.source_name}}
+            <div class="col-md-4 source">
+              [{{choice.source_number}}]  <a href="{{choice.source_address}}">{{choice.source_name}}</a><br/>
+              <span class="sub-source">{{choice.source_address}}</span>
+              <br/><br/>
+            </div>
+          {{/if}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>

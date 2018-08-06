@@ -1,0 +1,638 @@
+{
+  "categories": [
+    {
+      "ordering": 1,
+      "label": "Amino acid disorders",
+      "name": "u_cond_amino_acid"
+    },
+    {
+      "ordering": 9,
+      "label": "Biotinidase",
+      "name": "u_cond_bio"
+    },
+    {
+      "ordering": 10,
+      "label": "Critical Congenital Heart Disease",
+      "name": "u_cond_cchd"
+    },
+    {
+      "ordering": 11,
+      "label": "Cystic Fibrosis",
+      "name": "u_cond_cf"
+    },
+    {
+      "ordering": 2,
+      "label": "Endocrine disorders",
+      "name": "u_cond_endo"
+    },
+    {
+      "ordering": 3,
+      "label": "Fatty acid oxidation disorders",
+      "name": "u_cond_faod"
+    },
+    {
+      "ordering": 12,
+      "label": "Galactose disorders",
+      "name": "u_cond_gala"
+    },
+    {
+      "ordering": 13,
+      "label": "Hearing Loss",
+      "name": "u_cond_hl"
+    },
+    {
+      "ordering": 4,
+      "label": "Hemoglobin disorders",
+      "name": "u_cond_hemo"
+    },
+    {
+      "ordering": 14,
+      "label": "Infectious Diseases",
+      "name": "u_cond_id"
+    },
+    {
+      "ordering": 15,
+      "label": "Lysosomal Storage Disorders",
+      "name": "u_cond_lyso"
+    },
+    {
+      "ordering": 5,
+      "label": "Organic acid disorders",
+      "name": "u_cond_org_acid"
+    },
+    {
+      "ordering": 6,
+      "label": "Other disorders",
+      "name": "u_cond_other"
+    },
+    {
+      "ordering": 7,
+      "label": "SACHDNC candidate disorders",
+      "name": "u_cond_cand"
+    },
+    {
+      "ordering": 8,
+      "label": "Condition not listed",
+      "name": "u_cond_na"
+    }
+  ],
+  "conditions": {
+    "u_cond_amino_acid": [
+      {
+        "ordering": 1,
+        "name": "Argininemia (ARG)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 2,
+        "name": "Argininosuccinic aciduria (ASA)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 15,
+        "name": "Carbamoyl-phosphate synthase deficeincey (CPS)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 6,
+        "name": "Citrullinemia type I (CIT-I)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 7,
+        "name": "Citrullinemia type II (CIT-II)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 16,
+        "name": "Dihydrolipoamide dehydrogenase deficiency (E3)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 4,
+        "name": "Disorders of biopterin biosynthesis (BIOPT BS)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 5,
+        "name": "Disorders of biopterin regeneration (BIOPT REG)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 17,
+        "name": "Girate atrophy of the retina (Hyper ORN)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 18,
+        "name": "Histidinemia (HIS)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 9,
+        "name": "Homocystinuria (HCY)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 19,
+        "name": "Homocystinuria-megaloblastic anemia (CBL G)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 20,
+        "name": "Hydroxyprolinemia (OH PRO)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 21,
+        "name": "Hyperlysinemia (Hyper LYS)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 10,
+        "name": "Hypermethioninemia (MET)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 22,
+        "name": "Hyperornithinemia-Hyperammonemia-Homocitrullinuria syndrome (HHH)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 3,
+        "name": "Hyperphenylalaninemia (variant, benign) (H-PHE)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 23,
+        "name": "Hyperprolinemia type I (PRO I)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 24,
+        "name": "Hyperprolinemia type II (PRO II)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 11,
+        "name": "Maple syrup urine disease (MSUD)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 25,
+        "name": "Methylcobalamin deficiency (CBL E)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 26,
+        "name": "Methylene tetrahydrofolate reductase deficiency (MTHFR)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 27,
+        "name": "Nonketotic hyperglycinemia (glycine encephalopathy) (NKHG)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 28,
+        "name": "Ornithine transcarbamylase deficiency (OTC)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 8,
+        "name": "Phenylketonuria (PKU)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 29,
+        "name": "Pyroglutamic acidemia (5-OXO)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 30,
+        "name": "Pyruvate carboxylase deficiency",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 12,
+        "name": "Tyrosinemia type I (TYR-I)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 13,
+        "name": "Tyrosinemia type II (TYR-II)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 14,
+        "name": "Tyrosinemia type III (TYR-III)",
+        "category": "u_cond_amino_acid"
+      },
+      {
+        "ordering": 31,
+        "name": "Valinemia (Hyper VAL)",
+        "category": "u_cond_amino_acid"
+      }
+    ],
+    "u_cond_endo": [
+      {
+        "ordering": 3,
+        "name": "Congenital Adrenal Hyperplasia (11-beta monooxygenase) (CAH 11B-OHD)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 4,
+        "name": "Congenital Adrenal Hyperplasia (non-classical) (CAH NC)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 5,
+        "name": "Congenital Adrenal Hyperplasia (salt-wasting) (CAH SW)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 6,
+        "name": "Congenital Adrenal Hyperplasia (simple virilizing) (CAH SV)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 2,
+        "name": "Primary congenital hypothyroidism (CH)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 7,
+        "name": "Secondary Congenital Hypothyroidism (CH2)",
+        "category": "u_cond_endo"
+      },
+      {
+        "ordering": 8,
+        "name": "Thryoid-Binding Globulin Deficiency (TBG)",
+        "category": "u_cond_endo"
+      }
+    ],
+    "u_cond_faod": [
+      {
+        "ordering": 1,
+        "name": "2, 4-Dienoyl-CoA reductase deficiency (DE-RED)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 2,
+        "name": "Carnitine-acylcarnitine translocase deficiency (CACT)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 3,
+        "name": "Carnitine palmitoyltransferase type I deficiency (CPT-IA)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 4,
+        "name": "Carnitine palmitoyltransferase type II deficiency (CPT-II)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 5,
+        "name": "Carnitine uptake defect/carnitine transport defect (CUD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 6,
+        "name": "Glutaric acidemia type II (GA-2)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 7,
+        "name": "Long-chain L-3 hydroxyacyl-CoA dehydrogenase deficiency (LCHAD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 8,
+        "name": "Medium-chain acyl-CoA dehydrogenase deficiency (MCAD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 9,
+        "name": "Medium-chain ketoacyl-CoA thiolase deficiency (MCKAT)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 10,
+        "name": "Short-chain L-3-hydroxyacyl-CoA dehydrogenase deficiency (SCHAD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 11,
+        "name": "Short-chain acyl-CoA dehydrogenase deficiency (SCAD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 12,
+        "name": "Trifunctional protein deficiency (TFP)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 13,
+        "name": "Very long-chain acyl-CoA dehydrogenase deficiency (VLCAD)",
+        "category": "u_cond_faod"
+      },
+      {
+        "ordering": 14,
+        "name": "X-linked Adrenoleukodystrophy",
+        "category": "u_cond_faod"
+      }
+    ],
+    "u_cond_gala": [
+      {
+        "ordering": 1,
+        "name": "Classical galactosemia (GALT)",
+        "category": "u_cond_gala"
+      },
+      {
+        "ordering": 2,
+        "name": "Galactoepimerase deficiency (GALE)",
+        "category": "u_cond_gala"
+      },
+      {
+        "ordering": 3,
+        "name": "Galactokinase deficiency (GALK)",
+        "category": "u_cond_gala"
+      }
+    ],
+    "u_cond_hemo": [
+      {
+        "ordering": 4,
+        "name": "Hb C beta-thalassemia (Hb F,C,A)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 5,
+        "name": "Hb C-disease (Hb F,C)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 6,
+        "name": "Hb D beta-thalassemia (Hb F,D,A)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 7,
+        "name": "Hb E beta-thalassemia (Hb F,E,A)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 8,
+        "name": "Hb E-disease (Hb F,E)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 9,
+        "name": "Hb H-disease (Hb F,H)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 10,
+        "name": "Hb S O-Arab disease (Hb F,S,O-Arab)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 11,
+        "name": "Hb S Other than A,C,D,E,O-Arab (Hb F,S and other than A,C,D,E,O-Arab)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 1,
+        "name": "Hb S beta-thalassemia (Hb F,S,A)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 2,
+        "name": "Hb SC-disease (Hb F,S,C)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 12,
+        "name": "Hb SD-disease (Hb F,S,D)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 13,
+        "name": "Hb SE-disease (Hb F,S,E)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 3,
+        "name": "Hb SS-disease (sickle cell anemia) (Hb F,S)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 14,
+        "name": "Hb beta zero-thalassemia (Hb F only)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 15,
+        "name": "Hb disease other than A,C,D,E,F,H,O-Arab,S (Hb F, and other than A,C,D,E,F,H,O-Arab,S)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 16,
+        "name": "Hb C-carrier (Hb F,A,C)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 17,
+        "name": "Hb D-carrier (Hb F,A,D)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 18,
+        "name": "Hb E-carrier (Hb F,A,E)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 19,
+        "name": "Hb O-Arab carrier (Hb F,A,O-Arab)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 20,
+        "name": "Hb S (sickle)-carrier (Hb F,A,S)",
+        "category": "u_cond_hemo"
+      },
+      {
+        "ordering": 21,
+        "name": "Hb carrier other than C,D,E,S,O-Arab (Hb F,A and other than C,D,E,S,O-Arab) |",
+        "category": "u_cond_hemo"
+      }
+    ],
+    "u_cond_id": [
+      {
+        "ordering": 1,
+        "name": "Congenital toxoplasmosis (TOXO)",
+        "category": "u_cond_id"
+      },
+      {
+        "ordering": 2,
+        "name": "Human immunodeficiency virus (HIV)",
+        "category": "u_cond_id"
+      }
+    ],
+    "u_cond_lyso": [
+      {
+        "ordering": 1,
+        "name": "Fabry disease (GLA)",
+        "category": "u_cond_lyso"
+      },
+      {
+        "ordering": 2,
+        "name": "Gaucher disease (GBA)",
+        "category": "u_cond_lyso"
+      },
+      {
+        "ordering": 3,
+        "name": "Krabbe disease (GALC)",
+        "category": "u_cond_lyso"
+      },
+      {
+        "ordering": 4,
+        "name": "Mucopolysaccharidosis (MPS I)",
+        "category": "u_cond_lyso"
+      },
+      {
+        "ordering": 5,
+        "name": "Niemann Pick disease A/B (ASM)",
+        "category": "u_cond_lyso"
+      },
+      {
+        "ordering": 6,
+        "name": "Pompe disease (GAA)",
+        "category": "u_cond_lyso"
+      }
+    ],
+    "u_cond_org_acid": [
+      {
+        "ordering": 1,
+        "name": "2-Methyl-3-hydroxybutyric aciduria (2M3HBA)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 2,
+        "name": "2-Methylbutyrylglycinuria (2MBG)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 3,
+        "name": "3-Hydroxy-3-methyglutaric aciduria (HMG)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 4,
+        "name": "3-Methylcrotonyl-CoA carboxylase deficiency (3-MCC)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 5,
+        "name": "3-Methylglutaconic aciduria (3MGA)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 6,
+        "name": "Beta-Ketothiolase deficiency (bKT)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 16,
+        "name": "Ethylmalonic encephalopathy (EMA)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 17,
+        "name": "Formiminoglutamic acidemia (FIGLU)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 7,
+        "name": "Glutaric acidemia type I (GA-1)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 9,
+        "name": "Isobutyrylglycinuria (IBG)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 10,
+        "name": "Isovaleric acidemia (IVA)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 11,
+        "name": "Malonic acidemia (MAL)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 12,
+        "name": "Methylmalonic acidemia (cobalamin disorders) (CblA,B)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 13,
+        "name": "Methylmalonic acidemia (methylmalonyl-CoA mutase) (MUT)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 14,
+        "name": "Methylmalonic acidemia with homocystinuria (Cbl C,D)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 8,
+        "name": "Multiple carboxylase deficiency (MCD)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 18,
+        "name": "Primary lactic acidemia (LACTIC)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 15,
+        "name": "Propionic acidemia (PROP)",
+        "category": "u_cond_org_acid"
+      },
+      {
+        "ordering": 19,
+        "name": "Succinyl-CoA ligase deficiency (SUCLA2)",
+        "category": "u_cond_org_acid"
+      }
+    ],
+    "u_cond_other": [
+      {
+        "ordering": 10,
+        "name": "Glucose 6-phosphate dehydrogenase deficiency",
+        "category": "u_cond_other"
+      },
+      {
+        "ordering": 6,
+        "name": "Severe combined immunodeficiency (SCID)",
+        "category": "u_cond_other"
+      }
+    ],
+    "u_cond_cand": [
+      {
+        "ordering": 1,
+        "name": "Spinal muscular atrophy (SMA)",
+        "category": "u_cond_cand"
+      }
+    ],
+    "u_cond_bio": [
+      {
+        "ordering": 1,
+        "name": "Biotinidase deficiency (BIOT)",
+        "category": "u_cond_bio"
+      }
+    ]
+  }
+}

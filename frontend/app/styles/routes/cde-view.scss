@@ -1,0 +1,62 @@
+.cde-view {
+  sub {
+    color: darken($white, 35%);
+  }
+
+  .menu {
+    padding-bottom: 0.5rem;
+
+    .project {
+      color: $brand-success;
+      padding: 0.27em 1em;
+      font-size: 1.28rem;
+    }
+  }
+
+  .cde {
+    margin-top: 1rem;
+  }
+
+  .type {
+    padding: 2rem 0;
+  }
+
+  .choices {
+    .choice {
+      cursor: pointer;
+      color: $brand-primary;
+      margin-left: 1rem;
+    }
+
+    .card {
+      margin-left: 1rem;
+    }
+  }
+
+  .sub-source {
+    font-size: 0.85rem;
+    color: darken($white, 45%);
+  }
+  .codes {
+    .cell {
+      border: 1px solid darken($white, 15%);
+      border-collapse: collapse;
+
+      &.double {
+        padding: 0.5rem 0;
+      }
+    }
+
+    .cell-left {
+      border-left: 1px solid darken($white, 15%);
+    }
+
+    .cell-right {
+      border-right: 1px solid darken($white, 15%);
+    }
+
+    [data-toggle="tooltip"] {
+      cursor: pointer;
+    }
+  }
+}

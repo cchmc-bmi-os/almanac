@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body">
+        {{if model.definition.definition model.definition.definition 'No Definition provided'}} {{#if model.definition.source_name}}
+        <sub>[{{model.definition.source_number}}]</sub> {{/if}}
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<div class="row type">
+  <div class="col-12">
+    <h5 class="text-primary">This is a {{model.type}} question</h5>
+  </div>
+</div>
+
+{{#if model.choices}}
+<div class="row choices">
+  <div class="col-12">
+    <h5>Values:</h5>
+    {{#each model.choices as |choice|}} {{cde-view-choice-row choice=choice}} {{/each}}
+  </div>
+</div>
+{{/if}}

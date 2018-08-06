@@ -1,0 +1,30 @@
+.review {
+  .dz-clickable {
+    cursor: pointer;
+  }
+
+  .droparea {
+    padding: 50px 100px;
+    background-color: darken($white, 5%);
+    border: 1px solid darken($white, 15%);
+    text-align: center;
+
+    .blurb {
+      color: $brand-primary;
+    }
+
+
+
+    .dz-preview {
+      h4 {
+        color: $brand-danger;
+      }
+
+      &.text-success {
+        h4 {
+          color: $brand-success;
+        }
+      }
+    }
+  }
+}
